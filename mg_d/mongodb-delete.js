@@ -15,11 +15,11 @@ MongoClient.connect('mongodb://localhost:27017',(err,client) => {
      //  console.log(result);
      // });
 
-     db.collection('Todos').deleteOne({_id:new ObjectID('5b1bcf7204c071a02139913e')});
+     //db.collection('Todos').deleteOne({_id:new ObjectID('5b1bcf7204c071a02139913e')});
 
-     // db.collection('Todos').findOneAndDelete({completed:true}).then((result) => {
-     //   console.log(result);
-     // });
+      db.collection('Todos').findOneAndDelete({completed:true}).then((result) => {
+        console.log(result);
+      });
 
      client.close();
 
