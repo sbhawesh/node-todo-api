@@ -24,6 +24,15 @@ app.post('/todo',(req,res) => {
 
 });
 
+app.get('/todo',(req,res) => {
+     Todo.find().then((todos) => {
+          res.send({todos})
+     },(err) => {
+     	res.status(400).send(todos);
+     });
+      
+});
+
 app.listen(3000,(err) => {
 	if(err)
 	{
@@ -31,6 +40,8 @@ app.listen(3000,(err) => {
 	}
    console.log("server running");
 });
+
+module.exports = {app};
 
 // var newTodo = new Todo({
 // 	text:'First test',
